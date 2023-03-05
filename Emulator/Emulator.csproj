@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<UseWindowsForms>true</UseWindowsForms>
+	<AssemblyName>Conveyor.Emulator</AssemblyName>
+	<RootNamespace>Bridgestone.Warehouse.Loading.Conveyor.Emulator</RootNamespace>
+	<PackageId>Bridgestone.Warehouse.Loading.Conveyor.Emulator</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Device\Device.csproj" />
+  </ItemGroup>
+
+</Project>
