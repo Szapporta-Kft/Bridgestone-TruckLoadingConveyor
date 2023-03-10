@@ -9,11 +9,11 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.Data
 {
     public class DeliveryCsvFileRepository : IDeliveryRepository
     {
-        string openDeliveryFilesPath;
-        string closedDeliveryFilesPath;
+        string _OpenDeliveryFilesPath;
+        string _ClosedDeliveryFilesPath;
 
-        public string OpenDeliveryFilesPath { get => openDeliveryFilesPath; private set => openDeliveryFilesPath = value; }
-        public string ClosedDeliveryFilesPath { get => closedDeliveryFilesPath; private set => closedDeliveryFilesPath = value; }
+        public string OpenDeliveryFilesPath { get => _OpenDeliveryFilesPath; private set => _OpenDeliveryFilesPath = value; }
+        public string ClosedDeliveryFilesPath { get => _ClosedDeliveryFilesPath; private set => _ClosedDeliveryFilesPath = value; }
 
         public DeliveryCsvFileRepository(string openDeliveryFilesPath, string closedDeliveryFilesPath)
         {
@@ -24,17 +24,12 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.Data
         public string[] GetOpenDeliveryNumbers()
         {
             //nyitott szállítások mappába lévő CSV fájlok fájlnevei kiterjesztés nélkül
-            return Directory.GetFiles(openDeliveryFilesPath, "*.csv").Select(Path.GetFileNameWithoutExtension).ToArray();
-
+            return Directory.GetFiles(_OpenDeliveryFilesPath, "*.csv").Select(Path.GetFileNameWithoutExtension).ToArray();
         }
-
 
         public Delivery GetOpenDelivery(string deliveryNumber)
         {
-            if(!deliveryNumber.EndsWith(".csv"))
-            {
-                deliveryNumber += ".csv";
-            }
+            deliveryNumber = GetFileNameWithCSVExtension(deliveryNumber);
 
             var file = Path.Join(OpenDeliveryFilesPath, deliveryNumber);
             List<string> serialNumberList = new List<string>();
@@ -56,13 +51,13 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.Data
 
                     if (firstLine)
                     {
-                        //első sor átugrása
+                        //első sor átugrása (fejadat)
                         firstLine = false;
                         continue;
                     }
 
                     //sorozatszám a sorozatszám oszlopban lévő értékek „/” jel előtti része
-                    serialNumberList.Add(fields[0].Split(new[] {'/'}, 2).First());
+                    serialNumberList.Add(fields[0].Split(new[] { '/' }, 2).First());
                 }
             }
 
@@ -73,12 +68,9 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.Data
         }
         public void CloseDelivery(string deliveryNumber)
         {
-            if (!deliveryNumber.EndsWith(".csv"))
-            {
-                deliveryNumber += ".csv";
-            }
+            deliveryNumber = GetFileNameWithCSVExtension(deliveryNumber);
 
-            string sourceFile =Path.Combine(OpenDeliveryFilesPath, deliveryNumber);
+            string sourceFile = Path.Combine(OpenDeliveryFilesPath, deliveryNumber);
             string destFile = Path.Combine(ClosedDeliveryFilesPath, deliveryNumber);
 
             //nyitott szállítások mappába lévő CSV fájl átmásolása lezárt szállítások mappába
@@ -86,6 +78,15 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.Data
 
             //nyitott szállítás mappából CSV fájl törlése
             File.Delete(sourceFile);
+        }
+
+        private string GetFileNameWithCSVExtension(string fileName)
+        {
+            if (!fileName.EndsWith(".csv"))
+            {
+                fileName += ".csv";
+            }
+            return fileName;
         }
     }
 }

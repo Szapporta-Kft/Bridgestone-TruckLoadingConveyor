@@ -30,7 +30,7 @@
         {
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.btnColse = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lblPlan = new System.Windows.Forms.Label();
             this.lblPlanOutput = new System.Windows.Forms.Label();
             this.lblActual = new System.Windows.Forms.Label();
@@ -67,17 +67,17 @@
             this.btnStop.Text = "STOP";
             this.btnStop.UseVisualStyleBackColor = false;
             // 
-            // btnColse
+            // btnClose
             // 
-            this.btnColse.BackColor = System.Drawing.Color.Black;
-            this.btnColse.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnColse.ForeColor = System.Drawing.Color.White;
-            this.btnColse.Location = new System.Drawing.Point(551, 86);
-            this.btnColse.Name = "btnColse";
-            this.btnColse.Size = new System.Drawing.Size(200, 65);
-            this.btnColse.TabIndex = 2;
-            this.btnColse.Text = "LEZÁR";
-            this.btnColse.UseVisualStyleBackColor = false;
+            this.btnClose.BackColor = System.Drawing.Color.Black;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(551, 86);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(200, 65);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = "LEZÁR";
+            this.btnClose.UseVisualStyleBackColor = false;
             // 
             // lblPlan
             // 
@@ -178,7 +178,7 @@
             this.Controls.Add(this.lblActual);
             this.Controls.Add(this.lblPlanOutput);
             this.Controls.Add(this.lblPlan);
-            this.Controls.Add(this.btnColse);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Name = "TireCheckView";
@@ -194,7 +194,7 @@
 
         private Button btnStart;
         private Button btnStop;
-        private Button btnColse;
+        private Button btnClose;
         private Label lblPlan;
         private Label lblPlanOutput;
         private Label lblActual;

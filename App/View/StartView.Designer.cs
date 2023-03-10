@@ -41,7 +41,7 @@
             this.btnDelivery.Size = new System.Drawing.Size(200, 200);
             this.btnDelivery.TabIndex = 0;
             this.btnDelivery.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new EventHandler(Handle_ButtonClick);
+            this.btnDelivery.Click += new EventHandler(Handle_DeliveryButtonClick);
             // 
             // btnExit
             // 
@@ -51,7 +51,7 @@
             this.btnExit.Size = new System.Drawing.Size(200, 200);
             this.btnExit.TabIndex = 1;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new EventHandler(Handle_ButtonClick);
+            this.btnExit.Click += new EventHandler(Handle_ExitButtonClick);
             // 
             // StartView
             // 

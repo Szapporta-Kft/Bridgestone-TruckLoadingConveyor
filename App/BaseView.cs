@@ -79,13 +79,14 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
             }
         }
 
-        protected virtual void Handle_ButtonClick(object sender, EventArgs e)
+        protected virtual void Handle_DeliveryButtonClick(object sender, EventArgs e)
         {
-            if (_ProcessingUserCommand != true)
-            {
-                //TODO
-                //this.OnUserCommand(new UserCommand(this._ButtonUserCommDict[(Button2)sender]));
-            }
+            this.OnUserCommand(new UserCommand(ApplicationModel.USER_COMMAND_START_DELIVERY));
+        }
+
+        protected virtual void Handle_ExitButtonClick(object sender, EventArgs e)
+        {
+            this.OnUserCommand(new UserCommand(ApplicationModel.USER_COMMAND_START_EXIT));
         }
     }
 }

@@ -8,5 +8,7 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
 {
     internal interface IViewModel
     {
+        public ApplicationState GetApplicationState();
+
     }
 }

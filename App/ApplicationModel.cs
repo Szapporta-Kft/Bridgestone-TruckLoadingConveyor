@@ -8,6 +8,12 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
 {
     public class ApplicationModel: ITireCheckModel
     {
+        public const string USER_COMMAND_START_DELIVERY = "START_DELIVERY";
+        public const string USER_COMMAND_START_EXIT = "START_EXIT";
+        public const string USER_COMMAND_TIRE_CHECK_START = "TIRE_CHECK_START";
+        public const string USER_COMMAND_TIRE_CHECK_STOP = "TIRE_CHECK_STOP";
+        public const string USER_COMMAND_TIRE_CHECK_CLOSE = "TIRE_CHECK_CLOSE";
+
         ApplicationState _ApplicatonState;
 
         public ApplicationModel()

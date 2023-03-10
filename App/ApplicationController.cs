@@ -60,11 +60,40 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
         {
             switch (_Model.GetApplicationState())
             {
+                //alkalmazás állapota: start
                 case ApplicationState.Start:
-
+                    //eseménykezelés
+                    switch (command.Code)
+                    {
+                        case ApplicationModel.USER_COMMAND_START_DELIVERY:
+                            int i = 0;
+                            break;
+                        case ApplicationModel.USER_COMMAND_START_EXIT:
+                            int j = 0;
+                            break;
+                        default:
+                            throw new Exception("Invalid user command: " + command.Code);
+                            break;
+                    }
                     break;
+                //alkalmazás állapota: gumi ellenőrzés
                 case ApplicationState.TireCheck:
-
+                    //eseménykezelés
+                    switch (command.Code)
+                    {
+                        case ApplicationModel.USER_COMMAND_TIRE_CHECK_START:
+                            int i = 0;
+                            break;
+                        case ApplicationModel.USER_COMMAND_TIRE_CHECK_STOP:
+                            int j = 0;
+                            break;
+                        case ApplicationModel.USER_COMMAND_TIRE_CHECK_CLOSE:
+                            int k = 0;
+                            break;
+                        default:
+                            throw new Exception("Invalid user command: " + command.Code);
+                            break;
+                    }
                     break;
                 default:
                     throw new Exception("Invalid view");
@@ -72,5 +101,13 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
             }
         }
 
+
+        public void Dispose()
+        {
+            _View.UserCommandIssued -= new BaseView.UserCommandIssueHandlerEvent(OnViewUserCommand);
+            _Model = null;
+            _View = null;
+
         }
     }
+}
