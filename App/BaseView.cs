@@ -83,7 +83,9 @@ namespace Bridgestone.Warehouse.Loading.Conveyor.App
         {
             if (_ProcessingUserCommand != true)
             {
-                this.OnUserCommand(new UserCommand(this._ButtonUserCommDict[(Button2)sender]));
+                //TODO
+                //this.OnUserCommand(new UserCommand(this._ButtonUserCommDict[(Button2)sender]));
             }
+        }
     }
 }

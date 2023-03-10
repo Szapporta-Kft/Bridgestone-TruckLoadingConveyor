@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Conveyor.Data</AssemblyName>
+    <RootNamespace>Bridgestone.Warehouse.Loading.Conveyor.Data</RootNamespace>
+    <PackageId>Bridgestone.Warehouse.Loading.Conveyor.Data</PackageId>
+  </PropertyGroup>
+
+</Project>
